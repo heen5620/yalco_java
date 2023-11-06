@@ -1,0 +1,182 @@
+## Unit 4퀴즈
+
+> "블랙박스"에는 인터페이스와 구현이 있다. *인터페이스* (interface) 및 *구현* (implementation)이라는 용어가 의미하는 바를 설명하라.
+>
+
+- 인터페이스(interface)
+- 두 개체 또는 시스템간의 상호 작용을 위한 공통 지점이나 경계를 나타냄, 이는 어떤 객체나 시스템이 외부와 어떻게 소통해야 하는지를 정의하는 것.
+- 예시) 함수나 메서드, 시그니처, 클래스나 모듈의 공개된 메서드, 데이터 구조 등이 될 수 있다. 이는 외부에서 해당 객체나 시스템을 사용하는 방법을 알려주는데, 내부 구현에 대한 세부 사항은 숨겨진다.
+- 구현(implemetation)
+- 실제로 기능이 수행되는 부분, 서브루틴 안의 코드, 인터페이스에 정의된 동작을 실제로 구현하는 것
+- 예시
+- (인터페이스) 자동차의 `운전대`와 `페달은` 운전자와 자동차 간의 인터페이스를 형성. 운전자는 운전대를 통해 방향을 조절하고 페달을 통해 속도를 조절.
+- (구현) 자동차의 엔진, 변속기, 제동 시스템은 이러한 운전대와 페달의 동작을 구현, 이는 운전자에게는 숨겨져 있고, 운전자는 인터페이스를 통해서 자동차를 조작.
+
+> 서브루틴에는 *계약* (contract)이 있다고 한다. 서브루틴의 계약은 무엇을 의미하는가? 서브루틴을 사용하려고 할 때, 서브루틴의 계약을 이해하는 것이 왜 중요한가? 해당 계약은 "구문적(syntactic)" 측면과 "의미론적(semantic)" 측면을 모두 가지고 있다. 구문적 측면은 무엇인가? 의미론적 측면은 무엇인가?
+>
+
+- 서브루틴에서 계약(contract) 의미
+- 서브루틴이 호출될 때 기대되는 조건, 서브루틴이 완료된 후의 보장사항을 정의한 것.
+- 나를 이용하기 위해 당신이 해야 할 일이 여기에 있고, 내가 당신을 위해 할 일이 여기에 있음을 보장한다.
+- 서브루틴의 계약을 이해하는 것이 중요한 이유?
+- 서브루틴을 구성하는데 있어, 목적, 사용 방법들을 정확하게 사용하고 구현하기 위해서.?
+- 코드의 안정성과 신뢰성을 높이는데 중요. 즉 코드의 목적에 맞게 동작하도록 하게 하고, 코드의 유지보수성을 향상시키는 데에도 도움이 된다.
+- 개발자간의 커뮤니케이션을 촉진, 코드의 가독성을 높이고, 잠재적인 오류를 미리 방지하는 역할
+- 구문적 측면, 의미론적 측면
+- 구문적 측면 : 서브루틴을 호출하기 위해 입력해야하는 것을 알림, 서브루틴의 시그니처 매개변수의 개수, 타입, 반환 값 형식
+- 의미론적 측면 : 서브루틴이 어떤 일을 하고, 그 결과가 어떤 조건을 만족하는지에 대한 정의.
+
+> 서브루틴이 프로그램의 하향식 설계에서 어떻게 유용할 수 있는지 간략하게 설명
+>
+- 하향식 설계 :
+- 큰 단위를 작은 단위로 세분화 하며 해결하는 방법론
+- 어떻게 유용할까?
+- 코드를 작은 모듈로 분할하는데 도움이 되고, 각 모듈은 특정 기능을 수행, 모듈화된 코드는 논리적이고, 가독성이 높고, 재사용성을 높이게 된다.
+
+> 매개변수의 개념을 논하라, 매개변수는 무엇에 대한 것인가? actual parameter와 formal parameter의 차이점은 무엇인가?
+>
+- actual parameter
+- 함수를 호출할 때 사용하는 실제로 쓰는 값을 가진 parameter
+- Formal parameter
+- 함수를 정의 할 때 함수 안에서 사용되는 parameter
+
+```java
+class Main{
+
+public static int Function(int x, int y) // Formal parameter{
+	retrun x + y;
+}
+
+	public static void main(String[] args){
+
+			int a = 1; // Actual parameter
+			int b = 2; // Actual parameter
+			System.out.print(Function(a,b));
+}
+
+}
+```
+
+> (`final`제한자로 선언된) 명명된 상수(named constant)를 사용하는 다른 이유 둘을 들어보라.
+>
+- 변수가 초기화 된 이후 변수에 저장된 값을 변경할 수 없도록 하려고
+- 중요한 숫자들에 의미 있는 이름을 부여하기 위한 명명된 상수를 사용.
+- final keyword를 사용하는 변수는 대문자로만 구성된 이름 사용, 단어를 구분할 수 있는 _ 사용.
+
+    ```java
+    final int MAX_SIZE = 1;
+    ```
+
+
+> API란 무엇인가? 예를 들어보라
+>
+- API(Application Programming Interface) 소프트웨어 응용 프로그램 간 상호작용 할 수 있도록 만들어진 인터페이스.
+- 다른 소프트웨어들이 서로 통신하고 상호작용할수 있게 하는 규약이나 도구 모음
+- 이러한 것들은 어떤 루틴이 있는지, 어떤 매개변수를 사용하는지, 어떤 작업을 수행하는지에 대한 명세(specification)이다.
+- 다양한 플랫폼 Mac, Windows, Linux, 등등이 있지만, 자바를 사용하는데 있어 모든 표준 API를 사용한다.
+- ex) 자바를 어느 플랫폼에 사용하는지에 따라 화면에 출력하는 System.out.print 이 메소드가 다 다르게 사용되나? 아니다, 어디에서든 System.out.println을 사용한다.
+
+    즉 API란 한 프로그램을 사용하면서, 그 안에 이미 다른 사람들이 만들어 놓은것을 사용하는 것 이라고 생각한다.
+
+
+> *SupplyInt* 는 `public int get()` 메서드를 정의하는 함수적 인터페이스라고 가정하자. 1부터 6까지의 범위에서 무작위 정수를 가지는 *SupplyInt* 자료형의 람다 표현식(lambda expression)을 작성하라. 사용자에게 정수를 입력하도록 요청하고 그 응답을 반환하는 *SupplyInt* 자료형의 또 다른 람다 표현식을 작성하라.
+>
+
+```java
+public static void main(String[] args) {
+        SupplyInt randomNumber = () -> {
+            Random random = new Random();
+            return random.nextInt(6) + 1;
+        };
+
+        SupplyInt returnUserNumber = () -> {
+            Scanner input = new Scanner(System.in);
+            System.out.println("사용자의 숫자를 입력하세요");
+            return input.nextInt();
+        };
+
+        int rand = randomNumber.get();
+        int returnNum = returnUserNumber.get();
+
+        System.out.println("Random Number : " + rand);
+        System.out.println("Return User : " + returnNum);
+    }
+}
+```
+
+> 별 한 줄을 표준 출력으로 인쇄하는 "stars"라는 서브루틴을 작성하라. (별은 문자 "*"이다.) 별의 갯수는 서브루틴에 대하여 매개변수로 주어져야 한다. *for* 루프를 사용하라. 예를 들어, "stars(20)" 명령은 다음을 출력해야 할 것이다:
+>
+
+```java
+public static void printStars(int input) {
+        for (int i = 0; i < input; i++) {
+            System.out.printf("*");
+        }
+    }
+```
+
+> 질문 9에서 작성한 서브루틴을 사용하여 아래와 같이 첫 번째 줄에 별 1개, 두 번째 줄에 별 2개, 등으로 10줄의 별을 출력하는 `main()` 루틴을 작성하라.
+>
+
+```java
+public static void main(String[] args)
+{
+
+		for(int i=1;i<=10;i++)
+		{
+				printStars(i);
+				System.out.println();
+		}
+}
+```
+
+> *String* 과 char를 매개변수로 가지는 `countChars`라는 함수를 작성하라. 해당 함수는 문자열에서 문자가 나타나는 횟수를 센 다음 그 결과를 함수의 값으로 반환해야 한다.
+>
+
+```java
+public static int countChars(String str, char ch){
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ch) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    public static void main(String[] args) {
+        System.out.println(countChars("AAA", 'A'));
+    }
+}
+```
+
+> int 자료형인 세 개의 매개변수를 가진 서브루틴을 작성하라. 해당 서브루틴은 어떤 매개변수가 가장 작은지를 결정해야 한다. 가장 작은 매개변수의 값은 서브루틴의 값으로 반환되어야 한다.
+>
+
+```java
+public class Main {
+
+    public static int findMin(int a, int b, int c) {
+        int minValue = 0;
+
+        if (a <= b && a <= c) {
+            minValue = a;
+        }
+
+        if(b <= a && b <= c){
+            minValue = b;
+        }
+
+        if (c <= a && c <= b) {
+            minValue = c;
+        }
+
+        return minValue;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findMin(4,5,3));
+    }
+}
+```
